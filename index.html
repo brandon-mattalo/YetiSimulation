@@ -548,6 +548,7 @@
             <div class="controls-row">
                 <button id="play-pause">🎳 ROLL</button>
                 <button id="reset">🔄 RESET</button>
+                <button id="temp-toggle">🌡️ °F</button>
                 <span id="time-display">⏱️ Time: 0 min</span>
             </div>
             <div class="slider-container">
@@ -566,12 +567,25 @@ let glassIceCubes = [], yetiIceCubes = [];
 let isPlaying = false;
 let simulationTime = 0;
 let animationId;
+let useCelsius = false;
 
 // Scientifically accurate melt rates based on real-world data
 const GLASS_MELT_RATE = 0.008;  // Ice melts completely in ~125 minutes (2 hours)
 const YETI_MELT_RATE = 0.0007;  // Ice lasts ~1400+ minutes (24+ hours)
 const INITIAL_TEMP = 72; // Room temperature in Fahrenheit
 const ICE_TEMP = 32; // Ice temperature
+
+// Temperature conversion functions
+function fahrenheitToCelsius(f) {
+    return Math.round((f - 32) * 5/9);
+}
+
+function formatTemperature(tempF) {
+    if (useCelsius) {
+        return fahrenheitToCelsius(tempF) + '°C';
+    }
+    return Math.round(tempF) + '°F';
+}
 
 function init() {
     // Scene setup
@@ -874,8 +888,8 @@ function updateTemperatures() {
     }
     
     // Update display
-    document.querySelector('#glass-temp .temp-value').textContent = Math.round(glassTemp) + '°F';
-    document.querySelector('#yeti-temp .temp-value').textContent = Math.round(yetiTemp) + '°F';
+    document.querySelector('#glass-temp .temp-value').textContent = formatTemperature(glassTemp);
+    document.querySelector('#yeti-temp .temp-value').textContent = formatTemperature(yetiTemp);
 }
 
 function setupEventListeners() {
@@ -899,6 +913,13 @@ function setupEventListeners() {
         resetSimulation();
     });
 
+    // Temperature toggle button
+    document.getElementById('temp-toggle').addEventListener('click', () => {
+        useCelsius = !useCelsius;
+        document.getElementById('temp-toggle').textContent = useCelsius ? '🌡️ °C' : '🌡️ °F';
+        updateTemperatures(); // Refresh display with new units
+    });
+
     // Time slider
     const timeSlider = document.getElementById('time-slider');
     timeSlider.addEventListener('input', (e) => {
@@ -918,8 +939,8 @@ function resetSimulation() {
     document.getElementById('time-slider').value = 0;
     
     // Reset temperatures to same starting point
-    document.querySelector('#glass-temp .temp-value').textContent = '72°F';
-    document.querySelector('#yeti-temp .temp-value').textContent = '72°F';
+    document.querySelector('#glass-temp .temp-value').textContent = formatTemperature(INITIAL_TEMP);
+    document.querySelector('#yeti-temp .temp-value').textContent = formatTemperature(INITIAL_TEMP);
     
     // Reset ice cubes to starting position (no drop animation)
     glassIceCubes.forEach(ice => {
