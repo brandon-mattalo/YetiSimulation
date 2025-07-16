@@ -225,120 +225,104 @@
             left: 0;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .header {
-                top: 10px;
-                padding: 8px 15px;
-                max-width: 90%;
-            }
-            
+        /* Small Desktop Responsiveness */
+        @media (max-width: 1200px) {
             .header h1 {
-                font-size: 18px;
-                letter-spacing: 1px;
-                margin-bottom: 3px;
+                font-size: 24px;
             }
             
             .header p {
-                font-size: 11px;
+                font-size: 13px;
             }
             
             .label {
-                top: 70px;
-                font-size: 16px;
-                width: 45%;
-                padding: 6px 8px;
-                border-radius: 12px;
-                border: 2px solid #fff;
+                font-size: 20px;
+                padding: 10px 18px;
             }
             
             .temperature-display {
-                bottom: 180px;
-                width: 150px;
-                padding: 15px;
-                border-radius: 15px;
-                border: 3px solid #fff;
-            }
-            
-            #glass-temp {
-                left: calc(25% - 75px);
-            }
-            
-            #yeti-temp {
-                right: calc(25% - 75px);
+                width: 180px;
+                padding: 18px;
             }
             
             .temp-value {
-                font-size: 28px;
-                margin-bottom: 5px;
-            }
-            
-            .temp-label {
-                font-size: 12px;
+                font-size: 38px;
             }
             
             #controls {
-                bottom: 20px;
-                padding: 15px 20px;
-                border-radius: 20px;
-                border: 3px solid #fff;
-                min-width: auto;
-                max-width: 90%;
-            }
-            
-            .controls-row {
-                flex-wrap: wrap;
-                gap: 10px;
-                margin-bottom: 10px;
-                justify-content: center;
+                min-width: 400px;
+                padding: 20px 30px;
             }
             
             button {
-                padding: 8px 16px;
-                font-size: 14px;
-                border-radius: 12px;
-                border: 2px solid #fff;
-            }
-            
-            #time-display {
-                font-size: 14px;
-                min-width: 100%;
-                text-align: center;
-                margin-top: 5px;
-            }
-            
-            .slider-label {
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
-            
-            #time-slider {
-                height: 6px;
-                border: 2px solid #fff;
-            }
-            
-            #time-slider::-webkit-slider-thumb {
-                width: 20px;
-                height: 20px;
-                border: 2px solid #fff;
-            }
-            
-            #time-slider::-moz-range-thumb {
-                width: 20px;
-                height: 20px;
-                border: 2px solid #fff;
+                padding: 10px 20px;
+                font-size: 15px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 1024px) {
+            .header {
+                padding: 10px 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+                letter-spacing: 1.5px;
+            }
+            
+            .header p {
+                font-size: 12px;
+            }
+            
+            .label {
+                font-size: 18px;
+                padding: 8px 15px;
+                width: 46%;
+            }
+            
+            .temperature-display {
+                bottom: 150px;
+                width: 170px;
+                padding: 16px;
+            }
+            
+            .temp-value {
+                font-size: 35px;
+            }
+            
+            .temp-label {
+                font-size: 14px;
+            }
+            
+            #controls {
+                min-width: 380px;
+                padding: 18px 25px;
+            }
+            
+            button {
+                padding: 9px 18px;
+                font-size: 14px;
+            }
+            
+            #time-display {
+                font-size: 16px;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
             .header {
                 top: 5px;
                 padding: 6px 12px;
+                max-width: 95%;
+                border-radius: 15px;
+                border: 3px solid #fff;
             }
             
             .header h1 {
                 font-size: 16px;
                 letter-spacing: 0.5px;
+                margin-bottom: 2px;
             }
             
             .header p {
@@ -346,51 +330,190 @@
             }
             
             .label {
-                top: 60px;
+                top: 50px;
                 font-size: 14px;
-                width: 42%;
-                padding: 5px 6px;
+                width: 35%;
+                padding: 4px 6px;
+                border-radius: 10px;
+                border: 2px solid #fff;
+            }
+            
+            #glass-label {
+                left: 2%;
+            }
+            
+            #yeti-label {
+                right: 2%;
             }
             
             .temperature-display {
-                bottom: 160px;
+                bottom: 200px;
                 width: 120px;
-                padding: 12px;
+                padding: 10px;
+                border-radius: 12px;
+                border: 2px solid #fff;
             }
             
             #glass-temp {
-                left: calc(25% - 60px);
+                left: 10px;
             }
             
             #yeti-temp {
-                right: calc(25% - 60px);
+                right: 10px;
             }
             
             .temp-value {
-                font-size: 24px;
+                font-size: 22px;
+                margin-bottom: 3px;
             }
             
             .temp-label {
-                font-size: 11px;
+                font-size: 10px;
             }
             
             #controls {
-                bottom: 15px;
-                padding: 12px 15px;
+                bottom: 10px;
+                padding: 10px 15px;
+                border-radius: 15px;
+                border: 2px solid #fff;
+                min-width: auto;
                 max-width: 95%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .controls-row {
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-bottom: 8px;
+                justify-content: center;
             }
             
             button {
                 padding: 6px 12px;
-                font-size: 13px;
+                font-size: 12px;
+                border-radius: 10px;
+                border: 2px solid #fff;
             }
             
             #time-display {
-                font-size: 13px;
+                font-size: 12px;
+                min-width: 100%;
+                text-align: center;
+                margin-top: 3px;
             }
             
             .slider-label {
-                font-size: 13px;
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+            
+            #time-slider {
+                height: 5px;
+                border: 2px solid #fff;
+            }
+            
+            #time-slider::-webkit-slider-thumb {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #fff;
+            }
+            
+            #time-slider::-moz-range-thumb {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #fff;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                top: 3px;
+                padding: 4px 8px;
+                max-width: 98%;
+            }
+            
+            .header h1 {
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                margin-bottom: 1px;
+            }
+            
+            .header p {
+                font-size: 9px;
+            }
+            
+            .label {
+                top: 40px;
+                font-size: 12px;
+                width: 32%;
+                padding: 3px 5px;
+            }
+            
+            #glass-label {
+                left: 1%;
+            }
+            
+            #yeti-label {
+                right: 1%;
+            }
+            
+            .temperature-display {
+                bottom: 170px;
+                width: 100px;
+                padding: 8px;
+            }
+            
+            #glass-temp {
+                left: 5px;
+            }
+            
+            #yeti-temp {
+                right: 5px;
+            }
+            
+            .temp-value {
+                font-size: 18px;
+                margin-bottom: 2px;
+            }
+            
+            .temp-label {
+                font-size: 9px;
+            }
+            
+            #controls {
+                bottom: 5px;
+                padding: 8px 10px;
+                max-width: 98%;
+            }
+            
+            button {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+            
+            #time-display {
+                font-size: 11px;
+                margin-top: 2px;
+            }
+            
+            .slider-label {
+                font-size: 11px;
+                margin-bottom: 3px;
+            }
+            
+            #time-slider {
+                height: 4px;
+            }
+            
+            #time-slider::-webkit-slider-thumb {
+                width: 16px;
+                height: 16px;
+            }
+            
+            #time-slider::-moz-range-thumb {
+                width: 16px;
+                height: 16px;
             }
         }
     </style>
